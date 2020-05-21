@@ -22,8 +22,8 @@
           </li>
         </ul>
           {% if not user.is_authenticated %}
+              <a href="{% url 'login' %}" class="btn btn-primary mr-4">Entrar</a>
               <a href="{% url 'register' %}" class="btn btn-outline-secondary mr-2">Cadastrar</a>
-              <a href="{% url 'login' %}" class="btn btn-primary mr-2">Entrar</a>
           {% else %}
               <a href="{% url 'logout' %}" class="fas fa-sign-out-alt"></a>
           {% endif %}
@@ -44,7 +44,7 @@
 {% block footer %}
     <footer class="footer">
         <div class="container">
-            <span class="text-muted">&copy; Flávio Luiz Seixas</span>
+            <p class="text-muted text-center">&copy; Flávio Luiz Seixas 05-2020</p>
         </div>
     </footer>
 {% endblock %}
