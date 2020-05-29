@@ -2,13 +2,13 @@
 {% load bootstrap %}
 {% block title %}Página de login{% endblock %}
 {% block content %}
-    <h2>Login</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form|bootstrap }}
-        <button type="submit" class="btn btn-primary">Entrar</button>
-        <a href="{% url 'password_reset'  %}" class="btn float-right btn-outline-secondary">Reset Password</a>
-    </form>
+<h2>Login</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form|bootstrap }}
+  <button type="submit" class="btn btn-primary">Entrar</button>
+  <a href="{% url 'password_reset'  %}" class="btn float-right btn-outline-secondary">Reset Password</a>
+</form>
 {% endblock %}
 
 
