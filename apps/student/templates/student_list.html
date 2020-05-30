@@ -2,27 +2,44 @@
 {% block title %} Listagem {% endblock %}
 {% block content %}
 
-<div class="form-row">
-  <div class="col-auto">
-    <input type="text" class="form-control mt-4 mb-4" id="pesquisa" name="pesquisa" placeholder="Digite a sua busca">
+<form class="form-inline">
+  <div class="form-row">
+    <div class="col-auto">
+      <input type="text" class="form-control mt-4 mb-4" id="q" name="q"
+             value="{{ termo_busca|default_if_none:'' }}" placeholder="Digite a sua busca">
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary mt-4 mb-4">Buscar</button>
+    </div>
   </div>
-  <div class="col-auto">
-    <button type="submit" class="btn btn-primary mt-4 mb-4">Buscar</button>
-  </div>
-</div>
-<h3>Listagem</h3>
-<div class="form-group">
-  <ul class="list-group">
+</form>
+<h3>List</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Register</th>
+      <th scope="col">Username</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
     {% for student in students %}
-    <li class="list-group-item">
-      <a href="{% url 'student_update' student.id %}">{{ student.registration }}</a>
-      <a href="{% url 'student_delete' student.id %}" class="trash-item">
-        <div class="float-right"><i class="fa fa-trash"></i></div>
-      </a>
-    </li>
+    <tr>
+      <th scope="row">
+        <a href="{% url 'student_update' student.id %}">{{ student.registration }}</a>
+      </th>
+      <td>
+        {{ student.user.username }}
+      </td>
+      <td>
+        <a href="{% url 'student_delete' student.id %}" class="trash-item">
+          <div class="float-right"><i class="fa fa-trash"></i></div>
+        </a>
+      </td>
+    </tr>
     {% endfor %}
-  </ul>
-</div>
+  </tbody>
+</table>
 <div class="form-group">
   <a href="{% url 'student_new'%}" class="btn btn-primary">Novo</a>
 </div>

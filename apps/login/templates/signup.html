@@ -2,10 +2,10 @@
 {% load bootstrap %}
 {% block title %}Página de registro{% endblock %}
 {% block content %}
-  <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form|bootstrap }}
-    <button type="submit" class="btn btn-primary">Cadastrar</button>
-  </form>
+<h2>Sign up</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form|bootstrap }}
+  <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>
 {% endblock %}
